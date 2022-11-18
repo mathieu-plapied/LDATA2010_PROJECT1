@@ -1,16 +1,21 @@
-# This is a sample Python script.
+from dash import Dash, html, dcc
+from src.components.layout import create_layout
+from dash_bootstrap_components.themes import BOOTSTRAP
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+
+def main() -> None:
+    app = Dash(external_stylesheets=[BOOTSTRAP])
+    app.title = "LDATA2010 Project"
+    app.layout = create_layout(app)
+    app.run()
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+# assume you have a "long-form" data frame
+# see https://plotly.com/python/px-arguments/ for more options
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    main()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
